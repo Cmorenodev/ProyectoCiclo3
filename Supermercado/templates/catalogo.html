@@ -1,0 +1,143 @@
+{% load static%}
+{% csrf_token %}
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>CATALOGO</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, inicial-escale=1.0">
+        <link rel="stylesheet" href="{%static 'css/sttyleCatalogo.css'%}">
+        
+    </head>
+    <body>
+        <div class="grid">
+            <div class="header">
+                <div class="logo"></div>
+                <p class="titlep">SUPERMECADO</p>
+            </div>
+            <div class="menu">
+                <ul class="menuIND">
+                    
+                    <li class="Inicio b1" ><a href="{% url 'index' %}">Inicio</a></li>
+                    <li class="opcion2 b1" ><a href="{% url 'catalogo' %}">catalogo</a></li>
+                    
+                    
+                    {%if request.session.user and not request.session.superusu and not request.session.emple%}
+                    <li class="nombre" id="usu" name="usu" width="2em" >Bienvenid@ {{request.session.user}} </li>
+                    
+                    <li class="canastal" ><a href="{% url 'listCompra' request.session.user%}"><img class="canasta" src="{%static 'css/canasta.png'%}">
+                        
+                            
+
+                        
+                    </a></li>                    
+                    <li class="opcion4 b1 login me45"><a>menu</a>
+                        <ul class="nav">
+                            <li><a class="" href="#">PERFIL</a></li>
+                            <li><a class="" href="#">CONFIGURACIÓN</a></li>
+                            <li><a class="" href="{% url 'cerrar' %}">CERRAR-C</a></li>
+                        </ul>
+
+                        
+                        
+                    </li>
+                    {%elif request.session.superusu%}
+                    <li class="opcion2 b1" ><a href="{% url 'MenuAdmin' %}">Transacciones</a></li>
+                    <li class="nombre" id="usu" name="usu" ><div class="nombr">Bienvenid@ administrador {{request.session.user}}</div> </li>
+                    <li class="canastal" ><a href="{% url 'listCompra' request.session.user%}"><img class="canasta" src="{%static 'css/canasta.png'%}"></a></li>
+                    <li class="opcion4 b1 login me45"><a>menu</a>
+                        <ul class="nav">
+                            <li><a class="" href="#">PERFIL</a></li>
+                            <li><a class="" href="#">CONFIGURACIÓN</a></li>
+                            <li><a class="" href="{% url 'cerrar' %}">CERRAR-C</a></li>
+                        </ul>
+
+                        
+                        
+                    </li>
+                    {%elif request.session.emple%}
+                    <li class="opcion2 b1" ><a href="{% url 'MenuEmpleado' %}">Transacciones</a></li>
+                    <li class="nombre" id="usu" name="usu" ><div class="nombr">Bienvenid@ empleado {{request.session.user}}</div> </li>
+                    <li class="canastal" ><a href="{% url 'listCompra' request.session.user%}"><img class="canasta" src="{%static 'css/canasta.png'%}">
+                    
+                    </a></li>
+                    <li class="opcion4 b1 login me45"><a>menu</a>
+                        <ul class="nav">
+                            <li><a class="" href="#">PERFIL</a></li>
+                            <li><a class="" href="#">CONFIGURACIÓN</a></li>
+                            <li><a class="" href="{% url 'cerrar' %}">CERRAR-C</a></li>
+                        </ul>
+
+                        
+                        
+                    </li>
+                    {%else%}
+                    <li class="opcion4 b1 login" ><a class="login" href="{% url 'ingresar' %}">LOGIN</a></li>
+                    {%endif%}
+                </ul>
+            </div>
+            <div class="catalogo grid2">
+                <div class="catalogoNAV">
+                    <p class="tituloNAV">CATALOGO</p>
+                    
+                    <ul class="catalogoIND">
+                        <li class="Inicio b1" ><a href="{% url 'catalogo' %}">Todo</a></li>
+                        <li class="opcion2 b1" href="#"><a >Verduras</a></li>
+                        <li class="opcion3 b1" href="#"><a >Fruta</a></li>
+                        <li class="opcion3 b1" href="#"><a >Tuberculos</a></li>
+                    </ul>
+                </div>
+                <div class="catalogoPRO">
+                    {% if Mensaje%}
+                        <div class="container mt-2 aling-center alert alert-success" role="alert">
+                        {{Mensaje}}
+                        </div>
+                        {% endif%}
+                        {% if Error%}
+                        <div class="container mt-2 aling-center alert alert-success" role="alert">
+                        {{Error}}
+                        </div>
+                        {% endif%}
+                        
+                    {% for pro in productos%}
+                        <div class="gridCard2">
+                            <div class="card">
+                                <img src="{%static 'css/fruta.jpg'%}">
+                            </div>
+                            <div class="card">
+                                <p>Producto: <br>&nbsp&nbsp&nbsp&nbsp{{pro.PRO_Name}}</p>
+                            </div>
+                            <div class="card">
+                                <p>Precio uni:<br>&nbsp&nbsp&nbsp&nbsp {{pro.PRO_Cost}}</p>
+                            </div>
+                            <div class="card">
+                                <p>descripcion:<br>&nbsp&nbsp&nbsp&nbsp {{pro.PRO_Description}}</p>
+                            </div>
+                            <div class="card">
+                                <p>cantidad disponible:<br>&nbsp&nbsp&nbsp&nbsp {{pro.PRO_Stock}}</p>
+                            </div>
+                            <div class="card">
+                                <form action="{% url 'ins_listCompra' %}" method="post">
+                                    {% csrf_token %}
+                                    
+                                    <input type="hidden" value="{{pro.PRO_Code}}" name="PRO_Code">
+                                    <input class="labelcua" type="label" value="{{request.session.user}}" name="userPri">
+                                <input class="b1 comprar" type="submit" value="comprar" name="comprarP">
+                            </form>
+                            </div>
+                        
+                    </div>
+                    {%endfor%}
+                
+                    
+                </div>
+               
+                
+            </div>
+
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,119 @@
+{% load static%}
+<!doctype html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>INICIO</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, inicial-escale=1.0">
+        <link rel="stylesheet" href="{%static 'css/styleIndex.css'%}">
+        
+</head>
+    <body>
+      
+            <div class="grid">
+                <div class="heade">
+                    <div class="logo"></div>
+                    <p class="titlep">SUPERMECADO</p>
+                </div>
+
+                <div class="menu">
+                    <ul class="menuIND">
+                        <li class="Inicio b1" ><a href="#">Inicio</a></li>
+                        <li class="opcion2 b1" ><a href="{% url 'catalogo' %}">catalogo</a></li>
+                        
+                        {%if request.session.user and not request.session.superusu and not request.session.emple%}
+                        <li class="nombre" id="usu" name="usu" width="2em" >Bienvenid@ {{request.session.user}} </li>
+                        <li class="canastal" ><a href="{% url 'listCompra' request.session.user%}"><img class="canasta" src="{%static 'css/canasta.png'%}"></a></li>                    
+                        
+                        
+                        
+                        <li class="opcion4 b1 login me45"><a>menu</a>
+                            <ul class="nav">
+                                <li><a class="" href="#">PERFIL</a></li>
+                                <li><a class="" href="#">CONFIGURACIÓN</a></li>
+                                <li><a class="" href="{% url 'cerrar' %}">CERRAR-C</a></li>
+                            </ul>
+
+                            
+                            
+                        </li>
+                       
+
+
+
+                        {%elif request.session.superusu%}
+                        <li class="opcion2 b1" ><a href="{% url 'MenuAdmin' %}">Transacciones</a></li>
+                        <li class="nombre" id="usu" name="usu" ><div class="nombr">Bienvenid@ administrador {{request.session.user}}</div> </li>
+                        <li class="canastal" ><a href="{% url 'listCompra' request.session.user%}"><img class="canasta" src="{%static 'css/canasta.png'%}"></a></li>
+                        <li class="opcion4 b1 login me45"><a>menu</a>
+                            <ul class="nav">
+                                <li><a class="" href="#">PERFIL</a></li>
+                                <li><a class="" href="#">CONFIGURACIÓN</a></li>
+                                <li><a class="" href="{% url 'cerrar' %}">CERRAR-C</a></li>
+                            </ul>
+
+                            
+                            
+                        </li>
+                        {%elif request.session.emple%}
+                        <li class="opcion2 b1" ><a href="{% url 'MenuEmpleado' %}">Transacciones</a></li>
+                        <li class="nombre" id="usu" name="usu" ><div class="nombr">Bienvenid@ empleado {{request.session.user}}</div> </li>
+                        <li class="canastal" ><a href="{% url 'listCompra' request.session.user%}"><img class="canasta" src="{%static 'css/canasta.png'%}"></a></li>
+                        <li class="opcion4 b1 login me45"><a>menu</a>
+                            <ul class="nav">
+                                <li><a class="" href="#">PERFIL</a></li>
+                                <li><a class="" href="#">CONFIGURACIÓN</a></li>
+                                <li><a class="" href="{% url 'cerrar' %}">CERRAR-C</a></li>
+                            </ul>
+
+                            
+                            
+                        </li>
+                        {%else%}
+                        <li class="opcion4 b1 login" ><a class="login" href="{% url 'ingresar' %}">LOGIN</a></li>
+                        {%endif%}
+                    </ul>
+                </div>
+
+                <div class="slider">
+                        <ul>
+                            <li><img src="{%static 'css/larga.jpg'%}" alt=""></li>
+                            <li><img src="{%static 'css/band2.jpg'%}" alt=""></li>
+                            <li><img src="{%static 'css/band3.jpg'%}" alt=""></li>                            
+                        </ul>
+                       
+                </div>
+            
+                <div class="catalogoPRO">
+                   
+                    <div class="gridCard2">
+                        <div class="card">
+                            hola
+                        </div>
+                        <div class="card">
+                        hola
+                        </div>
+                        <div class="card">
+                        hola
+                        </div>
+                    
+                </div>
+
+
+                
+            </div>
+
+            </div>
+
+                
+
+
+            
+     
+
+        
+        
+    </body>
+</html>

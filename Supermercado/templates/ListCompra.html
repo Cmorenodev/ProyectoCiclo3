@@ -1,0 +1,137 @@
+{% load static%}
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>CATALOGO</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, inicial-escale=1.0">
+        <link rel="stylesheet" href="{%static 'css/styleListaCompra.css'%}">
+        
+    </head>
+    <body>
+        <div class="grid">
+            <div class="heade">
+                <div class="logo"></div>
+                <p class="titlep">SUPERMECADO</p>
+            </div>
+            <div class="menu">
+                <ul class="menuIND">
+                    <li class="Inicio b1" ><a href="{% url 'index' %}">Inicio</a></li>
+                    <li class="opcion2 b1" ><a href="{% url 'catalogo' %}">Catalogo</a></li>
+                    
+
+                    {%if request.session.user and not request.session.superusu and not request.session.emple%}
+                    <li class="nombre" id="usu" name="usu" width="2em" >Bienvenid@ {{request.session.user}} </li>
+                      
+                    <li class="opcion4 b1 login me45"><a>menu</a>
+                        <ul class="nav">
+                            <li><a class="" href="#">PERFIL</a></li>
+                            <li><a class="" href="#">CONFIGURACIÓN</a></li>
+                            <li><a class="" href="{% url 'cerrar' %}">CERRAR-C</a></li>
+                        </ul>
+
+                        
+                        
+                    </li>
+                    {%elif request.session.superusu%}
+                    <li class="nombre" id="usu" name="usu" width="2em" >Bienvenid@ {{request.session.user}} </li>
+                 
+                    <li class="opcion4 b1 login me45"><a>menu</a>
+                        <ul class="nav">
+                            <li><a class="" href="#">PERFIL</a></li>
+                            <li><a class="" href="#">CONFIGURACIÓN</a></li>
+                            <li><a class="" href="{% url 'cerrar' %}">CERRAR-C</a></li>
+                        </ul>
+
+                        
+                        
+                    </li>
+                    {%elif request.session.emple%}
+                    <li class="nombre" id="usu" name="usu" width="2em" >Bienvenid@ {{request.session.user}} </li>
+          
+                    <li class="opcion4 b1 login me45"><a>menu</a>
+                        <ul class="nav">
+                            <li><a class="" href="#">PERFIL</a></li>
+                            <li><a class="" href="#">CONFIGURACIÓN</a></li>
+                            <li><a class="" href="{% url 'cerrar' %}">CERRAR-C</a></li>
+                        </ul>
+
+                        
+                        
+                    </li>
+                    {%else%}
+                    <li class="opcion4 b1 login" ><a class="login" href="{% url 'ingresar' %}">LOGIN</a></li>
+                    {%endif%}
+                    </ul>
+            </div>
+            
+
+            <div class="catalogoPRO">
+                <div class="compra">
+                <form action="{% url 'comprar' request.session.user%}" method="post">
+                    {% csrf_token %}
+                    
+                    <input type="submit" value="comprar">
+                    <input type="label" hidden value="{{mensaje}}" name="listaDic">
+                </form>
+                </div>
+            
+                
+                <div class="gridCard2">
+                    
+                    <table class="lista">
+
+                        <tr class="enca">
+                      
+                          <td class="elem1">ITEM</td>
+                          <td class="elem2">DESCRIPCIÓN</td>
+                          <td class="elem3">CANTIDAD</td>
+                          <td class="elem4">COSTO UNITARIO</td>
+                          <td class="elem5">TOTAL</td>
+                          <td class="elem6"> </td>
+                      
+                        </tr>
+                      
+                        {% for pro in mensaje%}
+
+                        <tr class="cont">
+                            
+                            <td><p>{{pro.PRO_Name}}</p></td>
+                            <td><p>{{pro.PRO_Description}}</p>
+                            
+                            </td>
+                            <td>Celda 3</td>
+                            <td><p>{{pro.PRO_Cost}}</p></td>
+                            <td>Celda 2</td>
+                            
+                            
+                            <td class="eliminar">
+                            <form action="{% url 'eliLis' request.session.user%}" method="post">
+                                {% csrf_token %}
+
+                                
+                                <input type="label" hidden value="{{pro.LBUY_Code}}" name="LBUY_Code">
+                                
+                                <input type="submit" value="Eliminar"></td>
+
+                            </form>
+
+                        </tr>
+
+                        {%endfor%}
+                      
+                      </table>
+                    
+                </div>
+
+
+           
+
+
+
+        </div>
+        </div>
+       
+        </body>
+</html>

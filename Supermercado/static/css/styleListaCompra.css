@@ -1,0 +1,262 @@
+body{
+    background-image: url("catalogofondo.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding: 0%;
+    margin: 0%;
+    
+}
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 150px 50px auto;
+    margin:0%;
+    padding: 0%;
+    
+}
+
+
+.gridCard2{
+    display: grid;
+    grid-column: 1/7;
+    grid-template-columns: repeat(1,1fr);
+    
+   
+    padding: 1em;
+    
+    border-radius: 1em;
+    margin-top: 1em;
+}
+
+
+.heade{
+    display: flex;
+    grid-column: 1/4;
+    background-color:rgb(6, 70, 53);
+    padding: 1.5em;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.titlep{
+    text-shadow: rgb(121, 121, 121);
+    margin-left: 20px;
+    color:rgb(255, 255, 255);
+    font-size: 600%;
+    font-style: italic;
+    margin-top: 0%;
+}
+
+.logo{
+    background-color: aqua;
+    width: 100px;;
+    height: 100px;
+    margin-top: 0px;
+    margin-left: 0px;
+    color:white;
+}
+
+.menu{
+    grid-column: 1/4;
+    
+    padding:0px;
+    margin-top: 0px;
+}
+
+.menuIND{
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 1px 0;
+    border-radius: 25px;
+    border: 0.1px solid #00ff00;
+    background-color: rgb(81, 146, 89);
+    box-shadow: 0 4px 8px 0 #00ff00, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.b1{
+    width: 120px;
+    margin: 15px;
+    margin-left: 30px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    
+}
+
+.b1:after {
+    display: block;
+    content: '';
+    border-bottom: solid 3px #f1c40f;
+    padding-bottom: 1%;
+    transform: scaleX(0);
+    transition: transform 300ms ease-in-out;
+}
+
+.b1:hover:after {
+    transform: scaleX(1);
+}
+.b1 a{
+    text-decoration: none;
+    color: black;
+}
+.login{
+    margin-right: 40px;
+    text-align: center;
+    margin-left: auto;
+}
+.nombre{
+    width: 15em;
+    margin-top: 1em;
+    justify-self: auto;
+    text-align: center;
+
+}
+
+.catalogoPRO{
+    grid-column: 1/6;
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: 1em auto;
+    background-color:rgba(243, 234, 234, 0.684);
+    border-radius: 1em;
+    margin: 2em;
+    padding: 2rem;
+    
+}
+
+.b2{
+    padding-top: 0.7em;
+    padding-bottom: 0.8em;
+    margin-right: 0em;
+    margin-top: 1em;
+    background-color: aqua;
+    border-radius: 0.5em;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+.b2:hover{
+    border: 1px solid #f1c40f;
+}
+
+.card {
+    
+    background-color:rgba(189, 7, 7, 0.684);
+    border-radius: 1em;
+    grid-template-rows: 10em 5em 2em;
+}
+.compra{
+    grid-column: 6;
+    justify-self: end;
+}
+
+.compra input{
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    border-radius: 1em;
+    background-color: darkgreen;
+}
+
+.lista{
+    grid-column: 1;
+    border-inline: 1px;
+    
+
+}
+
+.enca {
+    background-color: rgb(172, 172, 172);
+    padding-top: 0em;
+    
+}
+.enca td{
+   
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+    font-family: Cooper;
+    text-align:center;
+    height: 2em;
+
+}
+.cont {
+    background-color: rgb(255, 255, 255);
+   
+}
+.cont td{
+    height: 2em;
+}
+input{
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+    border-radius: 1em;
+    justify-self: right;
+    font-family: Cooper;
+}
+.eliminar{
+    
+    justify-self: right;
+   
+}
+.eliminar input{
+    background-color: #ff9900;
+}
+.elem1{
+    width: 10%;
+}
+.elem2{
+    width: 50%;
+}
+.elem3{
+    width: 10%;
+}
+.elem4{
+    width: 10%;
+}
+.elem5{
+    width: 10%;
+}
+.elem6{
+    width: 10%;
+}
+.nav{
+    list-style: none;
+    width: 130px;
+
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    background-color:rgb(6, 70, 53);
+    top: 25px;
+    left: -20px;
+    border-radius: 1em;
+   
+    z-index: -2;
+    
+}
+
+.me45:hover{
+    top: 11em;
+    left: 600px;
+    transform: scaleX(1);
+    opacity: 1;
+    z-index: 2;
+}
+
+.nav li:hover{
+    display: block;
+    content: '';
+    border-bottom: solid 3px #f1c40f;
+    
+    transform: scaleX(1);
+    
+}
+.nav li{
+    margin-left: -35px;
+    padding: 1em;
+    border-radius: 1em;
+}

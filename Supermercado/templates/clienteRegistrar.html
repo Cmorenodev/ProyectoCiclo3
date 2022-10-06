@@ -1,0 +1,96 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        
+        <link rel="stylesheet" href="{% static 'css/styleCabecera.css' %}" type="text/css"> 
+        
+        <title>Registro cliente</title>
+    </head>
+    <body>
+        <header class="contheader">
+            <div class="d-flex align-items-center justify-content-md-start" style="background-color: #003301f4;" height="100">
+                <!-- LOGO IZQUIERDA -->
+                <div class="p-1 ms-5 me-5">
+                    <img src='{% static "img/logo.png" %}' alt="" width="100" height="100">
+                </div>
+                <!-- TITULO PRINCIPAL -->
+                <div class="tituloPrincipal fw-bold">SUPERMERCADO</div>            
+            </div>
+        </header>
+
+        <div class="barraNav pe-3">
+            <div class="text1 me-3">Bienvenido usuario: {{request.session.user}} </div>
+            <a href="{% url 'index' %}"><button  class="btn rounded-pill btn-outline-warning" type="button">Inicio</button></a>
+            <a href="{% url 'MenuAdmin' %}"><button  class="btn rounded-pill btn-outline-warning" type="button">Menú</button></a>
+            <a href="{% url 'cerrar' %}"><button  class="btn rounded-pill btn-outline-warning" type="button">Cerrar sesión</button></a>
+        </div>
+
+    <!--formulario de registro-->
+        <div class="container mt-5 col-7 align-center">
+            <div class="container text-center text-success"><h2>REGISTRAR CLIENTE</h2></div>
+            <form action="{% url 'RegistrarCliente' %}" method="post">
+                {% csrf_token %}
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="usuario" name="usuario" required placeholder="Usuario">
+                    <label for="usuario" class="form-label">Usuario</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="password" name="password" required placeholder="Contraseña">
+                    <label for="contraseña" class="form-label">Contraseña</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="nombre" name="nombre" required placeholder="Nombre del cliente">
+                    <label for="nombre" class="form-label">Nombre</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="apellido" name="apellido" required placeholder="Apellido del cliente">
+                    <label for="apellido" class="form-label">Apellido</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="email" name="email" required placeholder="Correo electrónico">
+                    <label for="email" class="form-label">Correo electrónico</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="telefono" name="telefono" required placeholder="Telefono del cliente">
+                    <label for="telefono" class="form-label">Teléfono</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <select class="form-select" name="userAdmin" aria-label="Default select example" required>
+                        {% for AD in mensaje %}    
+                        <option value="{{AD.AD_USER}}">{{AD.AD_USER}}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="editorial" class="form-label">Usuario Admin</label>
+                </div>   
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center mb-4">
+                    <a href="{% url 'ListaClientes' %}"><button class="btn btn-outline-primary rounded-pill" type="button">Volver</button></a>
+                    <button class="btn btn-outline-success rounded-pill" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Registrar</button>      
+                </div>
+            
+                        <!-- Modal  hace referencia a una ventana emergente para dar la opción de confirmar-->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Registrar cliente</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">Presione "Confirmar" para registrar este cliente.</div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="submit" class="btn btn-primary rounded-pill">Confirmar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </form>
+        </div>   
+    </body>
+</html>

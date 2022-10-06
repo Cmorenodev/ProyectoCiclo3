@@ -1,0 +1,41 @@
+{% load static%}
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>LOGIN</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, inicial-escale=1.0">
+        <link rel="stylesheet" href="{%static 'css/styleLogin.css'%}">
+        
+    </head>
+    <body>
+         
+        <form action=" " method="post">
+            {% csrf_token %}
+            <div class="login grid">
+                <div><p class="bin">BIENVENIDO</p></div>
+                <div class="grid2 grid">
+                    
+                    <div class="menu">
+                        <p class="text1">USUARIO:</p>
+                        <input class="t user" type="text" name="user_name" id="username" >
+                    </div>
+                    <div class="menu2">
+                        <p class="text1">CONTRASEÑA:</p>
+                        <input class="t" type="password" name="password" >
+                    </div>
+                    
+                </div>
+                <div class="op">
+                        <input class="b2" type="checkbox" value="recordar" name="recordar">
+                        <p>recordar usuario</p>
+                </div>
+                <div class="b">
+                        <input class="b1" type="submit" value="enviar" name="enviar">
+                </div>
+                
+            </div>
+        </form>
+    </body>
+</html>

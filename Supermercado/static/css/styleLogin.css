@@ -1,0 +1,79 @@
+body{
+    background-image: url("catalogofondo.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding: 0%;
+    margin: 0%;
+}
+
+.login{
+    width: 20em;
+    height: 20em;
+    background-color:rgba(255, 255, 255, 0.705);
+    border-radius: 2em;
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    padding: 3em;
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(5,1fr);
+    gap: 1.5em;
+}
+.grid div{
+    grid-column: 1/4;
+}
+.grid2{
+    background-color: rgb(6, 70, 56);
+    width: 20em;
+    height: 8em;
+    border-radius: 1em;
+   
+}
+.menu{
+    
+    display: flex;
+    margin-left: 1em;
+}
+.menu2{
+    margin-left: 1em;
+    display: flex;
+}
+.t{
+    height: 2em;
+    align-self: center;
+    align-items: end;
+}
+.op{
+    display: flex;
+}
+.user{
+    margin-left: 2.6em;
+}
+.b1{
+    position: relative;
+    font-family: Ravie;
+    left:50%;
+    transform: translate(40%, 0);
+   
+    background: #000000;
+    color: white;
+    border-style: outset;
+    border-color: #000000;
+    height: 50px;
+    width: 100px;
+    font: bold15px arial,sans-serif;
+    text-shadow: none;
+}
+.bin{
+    font-family: Ravie;
+    font-size: 200%;
+    margin: 0;
+    text-align: center;
+}
+.text1{
+    color: white;
+}

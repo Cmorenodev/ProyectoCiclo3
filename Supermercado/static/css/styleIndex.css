@@ -1,0 +1,260 @@
+body{
+    background-image: url("catalogofondo.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding: 0%;
+    margin: 0%;
+    
+}
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 150px 50px auto;
+    margin:0%;
+    padding: 0%;
+    
+}
+
+
+.gridCard2{
+    display: grid;
+    grid-column: 1/2;
+    grid-template-columns: repeat(1,1fr);
+    grid-template-rows: 10em 5em 2em;
+    gap: 1em;
+    margin: 1em;
+    padding: 1em;
+    background-color:rgba(255, 0, 221, 0.684);
+    border-radius: 1em;
+}
+
+
+.heade{
+    display: flex;
+    grid-column: 1/4;
+    background-color:rgb(6, 70, 53);
+    padding: 1.5em;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.titlep{
+    text-shadow: rgb(121, 121, 121);
+    margin-left: 20px;
+    color:rgb(255, 255, 255);
+    font-size: 600%;
+    font-style: italic;
+    margin-top: 0%;
+}
+
+.logo{
+    background-color: aqua;
+    width: 100px;;
+    height: 100px;
+    margin-top: 0px;
+    margin-left: 0px;
+    color:white;
+}
+
+.canasta{
+    width: 40px;
+    margin-top: 5px;
+    
+
+}
+.canastal{
+   
+    margin-left: 45em;
+}
+.menu{
+    grid-column: 1/4;
+   
+    padding:0px;
+    margin-top: 0px;
+}
+.menuIND{
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 1px 0;
+    border-radius: 25px;
+    border: 0.1px solid #00ff00;
+    background-color: rgb(81, 146, 89);
+    box-shadow: 0 4px 8px 0 #00ff00, 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.b1{
+    width: 120px;
+    margin: 15px;
+    margin-left: 30px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    
+}
+
+.canasta1{
+    width: 40px;
+    margin-left: right;
+    
+}
+.canasta{
+    text-align: center;
+    margin-right: 70px;
+    justify-self: right;
+}
+.nombre{
+    width: 5em;
+    margin-top: 1em;
+    justify-self: auto;
+}
+.nombr{
+    width: 30em;
+}
+.b1:after {
+    display: block;
+    content: '';
+    border-bottom: solid 3px #f1c40f;
+    padding-bottom: 1%;
+    transform: scaleX(0);
+    transition: transform 300ms ease-in-out;
+}
+
+.b1:hover:after {
+    transform: scaleX(1);
+    
+}
+
+
+
+
+.b1 a{
+    text-decoration: none;
+    color: black;
+    
+}
+.login{
+   
+    text-align: center;
+    margin-left: auto;
+    margin-right: 40px;
+}
+
+.mednu li:hover{
+    border: 1px solid #1100ff;
+}
+.opcion4{
+    float: right;
+}
+
+
+
+.catalogoPRO{
+    grid-column: 1/6;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    background-color:rgba(243, 234, 234, 0.684);
+    border-radius: 1em;
+    margin: 2em;
+    padding: 2rem;
+}
+
+.b2{
+    padding-top: 0.7em;
+    padding-bottom: 0.8em;
+    margin-right: 0em;
+    margin-top: 1em;
+    background-color: aqua;
+    border-radius: 0.5em;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+.b2:hover{
+    border: 1px solid #f1c40f;
+}
+
+.card {
+    
+    background-color:rgba(189, 7, 7, 0.684);
+    border-radius: 1em;
+    grid-template-rows: 10em 5em 2em;
+}
+
+.band{
+    height: 30em;
+}
+
+.slider{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow:hidden;
+    grid-column: 1/4;
+}
+.slider img{
+    height: 300px;
+}
+
+.slider ul{
+    display: flex;
+    padding:0;
+    width: 300%;
+    animation: cambio 10s infinite;
+}
+.slider li{
+    list-style: none;
+    width: 100%;
+}
+.slider img{
+    width: 100%;
+}
+@keyframes cambio{
+    0%{margin-left: 0%;}
+    25%{margin-left: 0%;}
+
+    30%{margin-left: -100%;}
+    65%{margin-left: -100%;}
+
+    70%{margin-left: -200%;}
+    100%{margin-left: -200%;}
+
+}
+
+.nav{
+    list-style: none;
+    width: 130px;
+
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    background-color:rgb(6, 70, 53);
+    top: 25px;
+    left: -55px;
+    border-radius: 1em;
+   
+    z-index: -2;
+    
+}
+
+.me45:hover{
+    top: 11em;
+    left: 600px;
+    transform: scaleX(1);
+    opacity: 1;
+    z-index: 2;
+}
+
+.nav li:hover{
+    display: block;
+    content: '';
+    border-bottom: solid 3px #f1c40f;
+    
+    transform: scaleX(1);
+    
+}
+.nav li{
+    margin-left: -35px;
+    padding: 1em;
+    border-radius: 1em;
+}

@@ -1,0 +1,25 @@
+.tituloPrincipal{ 
+    font-size: 100px;
+    font-family:Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+.btn{
+    font-family: helvetica;
+}
+
+.barraNav{
+    background-color: #399736;
+    display:flex;
+    justify-content: end;
+    align-items: center;
+    height: 45px;
+}
+
+.text1{
+    color: rgb(255, 255, 255);
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    padding: 0px;
+
+}
